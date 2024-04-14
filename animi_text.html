@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated text</title>
+    <style>
+        :root {
+            --_fw-900: bold;
+            --_fw-700: normal;
+            --_fw-400: lighter;
+            --_clr-900: red;
+            --_clr-700: yellow;
+            --_clr-400: green;
+        }
+
+        body {
+            background-color: black;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .bubble-text {
+            font-size: clamp(2rem, calc(2rem + 3.5vw), 8rem);
+            color: hsl(0, 0%, 50%);
+            user-select: none;
+            display: inline-block;
+        }
+
+        .bubble-text .split-char {
+            font-weight: var(--_fw-200);
+            transition: font-weight 0.5s ease;
+            color: inherit;
+        }
+
+        .bubble-text .split-char:hover {
+            font-weight: var(--_fw-900);
+            color: var(--_clr-900);
+        }
+
+        .bubble-text .split-char:hover + .split-char {
+            font-weight: var(--_fw-700);
+            color: var(--_clr-700);
+        }
+
+        .bubble-text .split-char:hover + .split-char + .split-char {
+            font-weight: var(--_fw-400);
+            color: var(--_clr-400);
+        }
+    </style>
+</head>
+<body>
+    <div class="bubble-text">
+        <span class="split-char">I</span>
+        <span class="split-char">t</span>
+        <span class="split-char">'</span>
+        <span class="split-char">s</span>
+        <span class="split-char"></span>
+        <span class="split-char">M</span>
+        <span class="split-char">y</span>
+        <span class="split-char"></span>
+        <span class="split-char">D</span>
+        <span class="split-char">a</span>
+        <span class="split-char">y</span>
+    </div>
+</body>
+</html>
